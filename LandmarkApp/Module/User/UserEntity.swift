@@ -27,6 +27,14 @@ struct Address: Codable {
 // MARK: - Geo
 struct Geo: Codable {
     let lat, lng: String?
+    
+    var latitude: Double? {
+        return Double(lat ?? "")
+    }
+    
+    var longitude: Double? {
+        return Double(lng ?? "")
+    }
 }
 
 // MARK: - Company

@@ -20,6 +20,7 @@
 		8AFF96F02A94BB340082EC7C /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */; };
 		8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */; };
 		8AFF96F42A94BB480082EC7C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F32A94BB480082EC7C /* DetailRouter.swift */; };
+		8AFF96F62A94E17A0082EC7C /* UIBarButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		8AFF96F32A94BB480082EC7C /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButton+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				8AFF96D22A9491D30082EC7C /* App */,
 				8AFF96D32A9491DA0082EC7C /* Module */,
 				8AFF96CC2A9491860082EC7C /* Info.plist */,
+				8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */,
 			);
 			path = LandmarkApp;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AFF96BF2A9491850082EC7C /* AppDelegate.swift in Sources */,
+				8AFF96F62A94E17A0082EC7C /* UIBarButton+Extension.swift in Sources */,
 				8AFF96F42A94BB480082EC7C /* DetailRouter.swift in Sources */,
 				8AFF96EE2A94BB2C0082EC7C /* DetailView.swift in Sources */,
 				8AFF96DC2A94921F0082EC7C /* UserEntity.swift in Sources */,
