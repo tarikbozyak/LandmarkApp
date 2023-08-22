@@ -11,11 +11,11 @@
 		8AFF96C12A9491850082EC7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96C02A9491850082EC7C /* SceneDelegate.swift */; };
 		8AFF96C82A9491860082EC7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AFF96C72A9491860082EC7C /* Assets.xcassets */; };
 		8AFF96CB2A9491860082EC7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AFF96C92A9491860082EC7C /* LaunchScreen.storyboard */; };
-		8AFF96D62A9491F70082EC7C /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D52A9491F70082EC7C /* UserView.swift */; };
-		8AFF96D82A9492020082EC7C /* UserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D72A9492020082EC7C /* UserInteractor.swift */; };
-		8AFF96DA2A9492140082EC7C /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D92A9492140082EC7C /* UserPresenter.swift */; };
-		8AFF96DC2A94921F0082EC7C /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96DB2A94921F0082EC7C /* UserEntity.swift */; };
-		8AFF96DE2A9492290082EC7C /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96DD2A9492290082EC7C /* UserRouter.swift */; };
+		8AFF96D62A9491F70082EC7C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D52A9491F70082EC7C /* HomeView.swift */; };
+		8AFF96D82A9492020082EC7C /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D72A9492020082EC7C /* HomeInteractor.swift */; };
+		8AFF96DA2A9492140082EC7C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D92A9492140082EC7C /* HomePresenter.swift */; };
+		8AFF96DC2A94921F0082EC7C /* HomeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96DB2A94921F0082EC7C /* HomeEntity.swift */; };
+		8AFF96DE2A9492290082EC7C /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96DD2A9492290082EC7C /* HomeRouter.swift */; };
 		8AFF96EE2A94BB2C0082EC7C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96ED2A94BB2C0082EC7C /* DetailView.swift */; };
 		8AFF96F02A94BB340082EC7C /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */; };
 		8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */; };
@@ -31,11 +31,11 @@
 		8AFF96C72A9491860082EC7C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AFF96CA2A9491860082EC7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AFF96CC2A9491860082EC7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8AFF96D52A9491F70082EC7C /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
-		8AFF96D72A9492020082EC7C /* UserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInteractor.swift; sourceTree = "<group>"; };
-		8AFF96D92A9492140082EC7C /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
-		8AFF96DB2A94921F0082EC7C /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
-		8AFF96DD2A9492290082EC7C /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		8AFF96D52A9491F70082EC7C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		8AFF96D72A9492020082EC7C /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		8AFF96D92A9492140082EC7C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		8AFF96DB2A94921F0082EC7C /* HomeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEntity.swift; sourceTree = "<group>"; };
+		8AFF96DD2A9492290082EC7C /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		8AFF96ED2A94BB2C0082EC7C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
 		8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
@@ -106,11 +106,11 @@
 		8AFF96D42A9491E80082EC7C /* User */ = {
 			isa = PBXGroup;
 			children = (
-				8AFF96D52A9491F70082EC7C /* UserView.swift */,
-				8AFF96D72A9492020082EC7C /* UserInteractor.swift */,
-				8AFF96D92A9492140082EC7C /* UserPresenter.swift */,
-				8AFF96DB2A94921F0082EC7C /* UserEntity.swift */,
-				8AFF96DD2A9492290082EC7C /* UserRouter.swift */,
+				8AFF96D52A9491F70082EC7C /* HomeView.swift */,
+				8AFF96D72A9492020082EC7C /* HomeInteractor.swift */,
+				8AFF96D92A9492140082EC7C /* HomePresenter.swift */,
+				8AFF96DB2A94921F0082EC7C /* HomeEntity.swift */,
+				8AFF96DD2A9492290082EC7C /* HomeRouter.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -217,13 +217,13 @@
 				8AFF96F62A94E17A0082EC7C /* UIBarButton+Extension.swift in Sources */,
 				8AFF96F42A94BB480082EC7C /* DetailRouter.swift in Sources */,
 				8AFF96EE2A94BB2C0082EC7C /* DetailView.swift in Sources */,
-				8AFF96DC2A94921F0082EC7C /* UserEntity.swift in Sources */,
+				8AFF96DC2A94921F0082EC7C /* HomeEntity.swift in Sources */,
 				8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */,
 				8AFF96F02A94BB340082EC7C /* DetailInteractor.swift in Sources */,
-				8AFF96D82A9492020082EC7C /* UserInteractor.swift in Sources */,
-				8AFF96D62A9491F70082EC7C /* UserView.swift in Sources */,
-				8AFF96DE2A9492290082EC7C /* UserRouter.swift in Sources */,
-				8AFF96DA2A9492140082EC7C /* UserPresenter.swift in Sources */,
+				8AFF96D82A9492020082EC7C /* HomeInteractor.swift in Sources */,
+				8AFF96D62A9491F70082EC7C /* HomeView.swift in Sources */,
+				8AFF96DE2A9492290082EC7C /* HomeRouter.swift in Sources */,
+				8AFF96DA2A9492140082EC7C /* HomePresenter.swift in Sources */,
 				8AFF96C12A9491850082EC7C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

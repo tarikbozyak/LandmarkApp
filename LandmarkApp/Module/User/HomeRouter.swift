@@ -1,5 +1,5 @@
 //
-//  UserRouter.swift
+//  HomeRouter.swift
 //  LandmarkApp
 //
 //  Created by Ahmed Tarık Bozyak on 22.08.2023.
@@ -8,25 +8,25 @@
 import Foundation
 import UIKit
 
-typealias EntryPoint = UserViewProtocol & UIViewController
+typealias EntryPoint = HomeViewProtocol & UIViewController
 
-protocol UserRouterProtocol {
+protocol HomeRouterProtocol {
     var entry: EntryPoint? { get }
-    static func start() -> UserRouterProtocol
+    static func start() -> HomeRouterProtocol
     func navigate(with user: User, rootViewController: UIViewController)
 }
 
-class UserRouter: UserRouterProtocol {
+class HomeRouter: HomeRouterProtocol {
     
     var entry: EntryPoint?
     
-    static func start() -> UserRouterProtocol {
-        let router = UserRouter()
+    static func start() -> HomeRouterProtocol {
+        let router = HomeRouter()
         
         // Assign VIP
-        var view: UserViewProtocol = UserViewController()
-        var interactor: UserInteractorProtocol = UserInteractor()
-        var presenter: UserPresenterProtocol = UserPresenter()
+        var view: HomeViewProtocol = HomeViewController()
+        var interactor: HomeInteractorProtocol = HomeInteractor()
+        var presenter: HomePresenterProtocol = HomePresenter()
         
         view.presenter = presenter
         interactor.presenter = presenter

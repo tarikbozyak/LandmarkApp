@@ -1,5 +1,5 @@
 //
-//  UserPresenter.swift
+//  HomePresenter.swift
 //  LandmarkApp
 //
 //  Created by Ahmed Tarık Bozyak on 22.08.2023.
@@ -11,24 +11,24 @@ enum FetchError: Error {
     case failed
 }
 
-protocol UserPresenterProtocol {
-    var interactor: UserInteractorProtocol? { get set }
-    var router: UserRouterProtocol? { get set }
-    var view: UserViewProtocol? { get set }
+protocol HomePresenterProtocol {
+    var interactor: HomeInteractorProtocol? { get set }
+    var router: HomeRouterProtocol? { get set }
+    var view: HomeViewProtocol? { get set }
     func interactorDidFetchUsers(with result: Result<[User], Error>)
 }
 
 
-class UserPresenter: UserPresenterProtocol {
-    var interactor: UserInteractorProtocol? {
+class HomePresenter: HomePresenterProtocol {
+    var interactor: HomeInteractorProtocol? {
         didSet {
             interactor?.getUsers()
         }
     }
     
-    var router: UserRouterProtocol?
+    var router: HomeRouterProtocol?
     
-    var view: UserViewProtocol?
+    var view: HomeViewProtocol?
     
     func interactorDidFetchUsers(with result: Result<[User], Error>) {
         switch result {

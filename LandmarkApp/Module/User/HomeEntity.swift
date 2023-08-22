@@ -1,5 +1,5 @@
 //
-//  UserEntity.swift
+//  HomeEntity.swift
 //  LandmarkApp
 //
 //  Created by Ahmed Tarık Bozyak on 22.08.2023.

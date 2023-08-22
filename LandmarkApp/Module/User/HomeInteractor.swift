@@ -1,5 +1,5 @@
 //
-//  UserInteractor.swift
+//  HomeInteractor.swift
 //  LandmarkApp
 //
 //  Created by Ahmed Tarık Bozyak on 22.08.2023.
@@ -7,15 +7,13 @@
 
 import Foundation
 
-
-
-protocol UserInteractorProtocol {
-    var presenter: UserPresenterProtocol? { get set }
+protocol HomeInteractorProtocol {
+    var presenter: HomePresenterProtocol? { get set }
     func getUsers()
 }
 
-class UserInteractor: UserInteractorProtocol {
-    var presenter: UserPresenterProtocol?
+class HomeInteractor: HomeInteractorProtocol {
+    var presenter: HomePresenterProtocol?
     
     func getUsers() {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }

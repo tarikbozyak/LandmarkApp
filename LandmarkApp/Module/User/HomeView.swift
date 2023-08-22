@@ -1,5 +1,5 @@
 //
-//  UserView.swift
+//  HomeView.swift
 //  LandmarkApp
 //
 //  Created by Ahmed Tarık Bozyak on 22.08.2023.
@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-protocol UserViewProtocol {
-    var presenter: UserPresenterProtocol? { get set }
+protocol HomeViewProtocol {
+    var presenter: HomePresenterProtocol? { get set }
     
     func update(with users: [User])
     func update(with error: String)
 }
 
-class UserViewController: UIViewController, UserViewProtocol, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
 
-    var presenter: UserPresenterProtocol?
+    var presenter: HomePresenterProtocol?
     
     var users: [User] = []
     
