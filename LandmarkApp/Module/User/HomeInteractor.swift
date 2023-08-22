@@ -9,28 +9,35 @@ import Foundation
 
 protocol HomeInteractorProtocol {
     var presenter: HomePresenterProtocol? { get set }
-    func getUsers()
+    func getLandmarks()
 }
 
 class HomeInteractor: HomeInteractorProtocol {
     var presenter: HomePresenterProtocol?
     
-    func getUsers() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                self?.presenter?.interactorDidFetchUsers(with: .failure(FetchError.failed))
-                return
-            }
-            do {
-                let user = try JSONDecoder().decode([User].self, from: data)
-                self?.presenter?.interactorDidFetchUsers(with: .success(user))
-            } catch {
-                self?.presenter?.interactorDidFetchUsers(with: .failure(error))
-            }
+    func getLandmarks() {
+        let data: Data
+        let filename = "landmarkData.json"
+
+        guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
+        else {
+            presenter?.interactorDidFetchLandmarks(with: .failure(FetchError.failed))
+            return
         }
-        task.resume()
+
+        do {
+            data = try Data(contentsOf: file)
+        } catch {
+            presenter?.interactorDidFetchLandmarks(with: .failure(error))
+            return
+        }
+
+        do {
+            let landmark = try JSONDecoder().decode([Landmark].self, from: data)
+            presenter?.interactorDidFetchLandmarks(with: .success(landmark))
+        } catch {
+            presenter?.interactorDidFetchLandmarks(with: .failure(error))
+        }
     }
     
     

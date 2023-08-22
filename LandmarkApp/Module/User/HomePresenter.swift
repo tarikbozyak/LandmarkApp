@@ -15,14 +15,14 @@ protocol HomePresenterProtocol {
     var interactor: HomeInteractorProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
     var view: HomeViewProtocol? { get set }
-    func interactorDidFetchUsers(with result: Result<[User], Error>)
+    func interactorDidFetchLandmarks(with result: Result<[Landmark], Error>)
 }
 
 
 class HomePresenter: HomePresenterProtocol {
     var interactor: HomeInteractorProtocol? {
         didSet {
-            interactor?.getUsers()
+            interactor?.getLandmarks()
         }
     }
     
@@ -30,10 +30,10 @@ class HomePresenter: HomePresenterProtocol {
     
     var view: HomeViewProtocol?
     
-    func interactorDidFetchUsers(with result: Result<[User], Error>) {
+    func interactorDidFetchLandmarks(with result: Result<[Landmark], Error>) {
         switch result {
-        case .success(let user):
-            view?.update(with: user)
+        case .success(let landmark):
+            view?.update(with: landmark)
         case .failure(let error):
             view?.update(with: "Error occured : \(error.localizedDescription)")
         }

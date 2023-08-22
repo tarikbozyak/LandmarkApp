@@ -6,39 +6,49 @@
 //
 
 import Foundation
+import UIKit
+import CoreLocation
 
-// Model
-
-// MARK: - User
-struct User: Codable {
-    let id: Int?
-    let name, username, email: String?
-    let address: Address?
-    let phone, website: String?
-    let company: Company?
-}
-
-// MARK: - Address
-struct Address: Codable {
-    let street, suite, city, zipcode: String?
-    let geo: Geo?
-}
-
-// MARK: - Geo
-struct Geo: Codable {
-    let lat, lng: String?
+// MARK: - Landmark
+struct Landmark: Hashable, Codable ,Identifiable {
+    var id: Int
+    var name: String
+    var park: String
+    var state: String
+    var description: String
+    var isFavorite: Bool
+    var isFeatured: Bool
+    var category: Category
     
-    var latitude: Double? {
-        return Double(lat ?? "")
+    private var imageName: String
+    
+    var image: UIImage? {
+        UIImage(named: imageName)
     }
     
-    var longitude: Double? {
-        return Double(lng ?? "")
+    var featureImage: UIImage?{
+        isFeatured ? UIImage(named: imageName+"_feature") : nil
     }
+
+    private var coordinates: Coordinates
+    
+    var locationCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: coordinates.latitude,
+            longitude: coordinates.longitude)
+    }
+
 }
 
-// MARK: - Company
-struct Company: Codable {
-    let name, catchPhrase, bs: String?
+// MARK: - Category
+enum Category: String, CaseIterable, Codable{
+    case lakes = "Lakes"
+    case rivers = "Rivers"
+    case mountains = "Mountains"
 }
 
+// MARK: - Coordinates
+struct Coordinates: Hashable, Codable {
+    var latitude: Double
+    var longitude: Double
+}

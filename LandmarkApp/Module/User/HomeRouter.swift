@@ -13,7 +13,7 @@ typealias EntryPoint = HomeViewProtocol & UIViewController
 protocol HomeRouterProtocol {
     var entry: EntryPoint? { get }
     static func start() -> HomeRouterProtocol
-    func navigate(with user: User, rootViewController: UIViewController)
+    func navigate(with landmark: Landmark, rootViewController: UIViewController)
 }
 
 class HomeRouter: HomeRouterProtocol {
@@ -32,8 +32,8 @@ class HomeRouter: HomeRouterProtocol {
         interactor.presenter = presenter
         
         presenter.router = router
-        presenter.interactor = interactor
         presenter.view = view
+        presenter.interactor = interactor
         
         router.entry = view as? EntryPoint
         
@@ -41,8 +41,8 @@ class HomeRouter: HomeRouterProtocol {
         
     }
     
-    func navigate(with user: User, rootViewController: UIViewController) {
-        let router = DetailRouter.prepareModul(with: user)
+    func navigate(with landmark: Landmark, rootViewController: UIViewController) {
+        let router = DetailRouter.prepareModul(with: landmark)
         guard let detailVC = router.entryPoint else { return }
         rootViewController.navigationController?.pushViewController(detailVC, animated: true)
     }

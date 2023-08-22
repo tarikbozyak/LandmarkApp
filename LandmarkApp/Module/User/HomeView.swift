@@ -11,7 +11,7 @@ import UIKit
 protocol HomeViewProtocol {
     var presenter: HomePresenterProtocol? { get set }
     
-    func update(with users: [User])
+    func update(with landmark: [Landmark])
     func update(with error: String)
 }
 
@@ -19,7 +19,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
 
     var presenter: HomePresenterProtocol?
     
-    var users: [User] = []
+    var landmarks: [Landmark] = []
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -51,9 +51,9 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
         label.center = view.center
     }
     
-    func update(with users: [User]) {
+    func update(with landmarks: [Landmark]) {
         DispatchQueue.main.async { [weak self] in
-            self?.users = users
+            self?.landmarks = landmarks
             self?.tableView.reloadData()
             self?.tableView.isHidden = false
         }
@@ -61,7 +61,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
     
     func update(with error: String) {
         DispatchQueue.main.async { [weak self] in
-            self?.users = []
+            self?.landmarks = []
             self?.label.text = "Error occured.. \(error)"
             self?.label.isHidden = false
             self?.tableView.isHidden = true
@@ -71,17 +71,17 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
     //Table
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count
+        return landmarks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = users[indexPath.row].name
+        cell.textLabel?.text = landmarks[indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.router?.navigate(with: users[indexPath.row], rootViewController: self)
+        presenter?.router?.navigate(with: landmarks[indexPath.row], rootViewController: self)
     }
     
 

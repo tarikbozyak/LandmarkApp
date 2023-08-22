@@ -15,7 +15,7 @@ protocol DetailViewProtocol {
 
 class DetailViewController: UIViewController, DetailViewProtocol {
     var presenter: DetailPresenterProtocol?
-    var user: User
+    var landmark: Landmark
     
     var isFavorite: Bool {
         return false
@@ -62,8 +62,8 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         button.isSelected.toggle()
     }
     
-    init(_ user: User) {
-        self.user = user
+    init(_ landmark: Landmark) {
+        self.landmark = landmark
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -85,8 +85,7 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     
     func setMapRegion(){
         DispatchQueue.main.async { [weak self] in
-            guard let latitude = self?.user.address?.geo?.latitude, let longitude = self?.user.address?.geo?.longitude else { return }
-            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            guard let coordinate = self?.landmark.locationCoordinate else { return }
             let span = MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
             let coordinateRegion = MKCoordinateRegion(center: coordinate, span: span)
             self?.mapView.setRegion(coordinateRegion, animated: true)
