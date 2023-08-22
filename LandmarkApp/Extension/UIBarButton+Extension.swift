@@ -32,12 +32,13 @@ enum BarButtonType {
 }
 
 extension UIBarButtonItem {
-    static func customBarButton(type: BarButtonType, target: Any?, action: Selector) -> UIBarButtonItem {
+    static func customBarButton(type: BarButtonType, isSelected: Bool = false, target: Any?, action: Selector) -> UIBarButtonItem {
         let button = UIButton(type: .custom)
         button.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         button.tintColor = .white
         button.setImage(type.image, for: .normal)
         button.setImage(type.selectedImage, for: .selected)
+        button.isSelected = isSelected
         button.addTarget(target, action: action, for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
         button.layer.cornerRadius = 20

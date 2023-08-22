@@ -23,13 +23,6 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     
     lazy var mapView = MKMapView()
     
-    private let label: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        return label
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavbar()
@@ -44,24 +37,20 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         navigationController?.navigationBar.isTranslucent = true
         navigationItem.hidesBackButton = true
         
-        //back button
-        let backButton = UIBarButtonItem.customBarButton(type: .back, target: self, action: #selector(backButtonTapped))
-        navigationItem.leftBarButtonItem = backButton
+        // leftBarButtonItem
+        navigationItem.leftBarButtonItem = .customBarButton(
+            type: .back,
+            target: self,
+            action: #selector(backButtonTapped)
+        )
         
-        //favorite button
-        let favoriteButton = UIBarButtonItem.customBarButton(type: .favorite ,target: self, action: #selector(favoriteButtonTapped(sender:)))
-        navigationItem.rightBarButtonItem = favoriteButton
-        
-        if let favButton = favoriteButton.customView as? UIButton {
-            favButton.isSelected = isFavorite
-        }
-        
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        label.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
-        label.center = view.center
+        // rightBarButtonItem
+        navigationItem.rightBarButtonItem = .customBarButton(
+            type: .favorite,
+            isSelected: isFavorite,
+            target: self,
+            action: #selector(favoriteButtonTapped)
+        )
     }
     
     @objc func backButtonTapped(){
@@ -78,9 +67,8 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         super.init(nibName: nil, bundle: nil)
     }
     
-    func addUserName(){
-        view.addSubview(label)
-        label.text = user.name
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func addMapView(){
@@ -104,10 +92,5 @@ class DetailViewController: UIViewController, DetailViewProtocol {
             self?.mapView.setRegion(coordinateRegion, animated: true)
         }
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
 }

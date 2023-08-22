@@ -21,6 +21,7 @@
 		8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */; };
 		8AFF96F42A94BB480082EC7C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F32A94BB480082EC7C /* DetailRouter.swift */; };
 		8AFF96F62A94E17A0082EC7C /* UIBarButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */; };
+		8AFF96FC2A94EEAA0082EC7C /* landmarkData.json in Resources */ = {isa = PBXBuildFile; fileRef = 8AFF96FB2A94EEAA0082EC7C /* landmarkData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		8AFF96F32A94BB480082EC7C /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButton+Extension.swift"; sourceTree = "<group>"; };
+		8AFF96FB2A94EEAA0082EC7C /* landmarkData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,10 +74,11 @@
 		8AFF96BD2A9491850082EC7C /* LandmarkApp */ = {
 			isa = PBXGroup;
 			children = (
+				8AFF96FA2A94EE8C0082EC7C /* Datasource */,
 				8AFF96D22A9491D30082EC7C /* App */,
+				8AFF96F72A94EE460082EC7C /* Extension */,
 				8AFF96D32A9491DA0082EC7C /* Module */,
 				8AFF96CC2A9491860082EC7C /* Info.plist */,
-				8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */,
 			);
 			path = LandmarkApp;
 			sourceTree = "<group>";
@@ -121,6 +124,22 @@
 				8AFF96F32A94BB480082EC7C /* DetailRouter.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		8AFF96F72A94EE460082EC7C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				8AFF96F52A94E17A0082EC7C /* UIBarButton+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		8AFF96FA2A94EE8C0082EC7C /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				8AFF96FB2A94EEAA0082EC7C /* landmarkData.json */,
+			);
+			path = Datasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +202,7 @@
 			files = (
 				8AFF96CB2A9491860082EC7C /* LaunchScreen.storyboard in Resources */,
 				8AFF96C82A9491860082EC7C /* Assets.xcassets in Resources */,
+				8AFF96FC2A94EEAA0082EC7C /* landmarkData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
