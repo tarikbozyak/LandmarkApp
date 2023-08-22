@@ -13,9 +13,11 @@ typealias EntryPoint = UserViewProtocol & UIViewController
 protocol UserRouterProtocol {
     var entry: EntryPoint? { get }
     static func start() -> UserRouterProtocol
+    func navigate(with user: User, rootViewController: UIViewController)
 }
 
 class UserRouter: UserRouterProtocol {
+    
     var entry: EntryPoint?
     
     static func start() -> UserRouterProtocol {
@@ -37,6 +39,12 @@ class UserRouter: UserRouterProtocol {
         
         return router
         
+    }
+    
+    func navigate(with user: User, rootViewController: UIViewController) {
+        let router = DetailRouter.prepareModul(with: user)
+        guard let detailVC = router.entryPoint else { return }
+        rootViewController.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     

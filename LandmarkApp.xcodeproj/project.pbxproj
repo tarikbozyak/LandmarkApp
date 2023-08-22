@@ -16,6 +16,10 @@
 		8AFF96DA2A9492140082EC7C /* UserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96D92A9492140082EC7C /* UserPresenter.swift */; };
 		8AFF96DC2A94921F0082EC7C /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96DB2A94921F0082EC7C /* UserEntity.swift */; };
 		8AFF96DE2A9492290082EC7C /* UserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96DD2A9492290082EC7C /* UserRouter.swift */; };
+		8AFF96EE2A94BB2C0082EC7C /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96ED2A94BB2C0082EC7C /* DetailView.swift */; };
+		8AFF96F02A94BB340082EC7C /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */; };
+		8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */; };
+		8AFF96F42A94BB480082EC7C /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96F32A94BB480082EC7C /* DetailRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		8AFF96D92A9492140082EC7C /* UserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresenter.swift; sourceTree = "<group>"; };
 		8AFF96DB2A94921F0082EC7C /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		8AFF96DD2A9492290082EC7C /* UserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRouter.swift; sourceTree = "<group>"; };
+		8AFF96ED2A94BB2C0082EC7C /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		8AFF96F32A94BB480082EC7C /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,7 @@
 		8AFF96D32A9491DA0082EC7C /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				8AFF96EC2A94BB1F0082EC7C /* Detail */,
 				8AFF96D42A9491E80082EC7C /* User */,
 			);
 			path = Module;
@@ -98,6 +107,17 @@
 				8AFF96DD2A9492290082EC7C /* UserRouter.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		8AFF96EC2A94BB1F0082EC7C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8AFF96ED2A94BB2C0082EC7C /* DetailView.swift */,
+				8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */,
+				8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */,
+				8AFF96F32A94BB480082EC7C /* DetailRouter.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +191,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AFF96BF2A9491850082EC7C /* AppDelegate.swift in Sources */,
+				8AFF96F42A94BB480082EC7C /* DetailRouter.swift in Sources */,
+				8AFF96EE2A94BB2C0082EC7C /* DetailView.swift in Sources */,
 				8AFF96DC2A94921F0082EC7C /* UserEntity.swift in Sources */,
+				8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */,
+				8AFF96F02A94BB340082EC7C /* DetailInteractor.swift in Sources */,
 				8AFF96D82A9492020082EC7C /* UserInteractor.swift in Sources */,
 				8AFF96D62A9491F70082EC7C /* UserView.swift in Sources */,
 				8AFF96DE2A9492290082EC7C /* UserRouter.swift in Sources */,

@@ -80,6 +80,10 @@ class UserViewController: UIViewController, UserViewProtocol, UITableViewDelegat
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.router?.navigate(with: users[indexPath.row], rootViewController: self)
+    }
+    
 
     
 }
