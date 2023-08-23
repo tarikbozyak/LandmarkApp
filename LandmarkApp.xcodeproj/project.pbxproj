@@ -96,11 +96,11 @@
 		8AFF96BD2A9491850082EC7C /* LandmarkApp */ = {
 			isa = PBXGroup;
 			children = (
+				8AFF96D22A9491D30082EC7C /* App */,
+				8AFF96D32A9491DA0082EC7C /* Module */,
 				8A2A07E52A95EFA600ED39B5 /* Utility */,
 				8AFF96FA2A94EE8C0082EC7C /* Datasource */,
-				8AFF96D22A9491D30082EC7C /* App */,
 				8AFF96F72A94EE460082EC7C /* Extension */,
-				8AFF96D32A9491DA0082EC7C /* Module */,
 				8AFF96CC2A9491860082EC7C /* Info.plist */,
 			);
 			path = LandmarkApp;
