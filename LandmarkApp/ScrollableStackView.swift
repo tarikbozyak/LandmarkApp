@@ -68,18 +68,20 @@ class ScrollableStackView: UIView {
         let subtitleStackView = UIStackView()
         subtitleStackView.axis = .horizontal
         subtitleStackView.distribution = .equalCentering
+        subtitleStackView.spacing = 20
         
         let subtitlePark = UILabel()
         subtitlePark.numberOfLines = 2
         subtitlePark.font = .preferredFont(forTextStyle: .subheadline)
         subtitlePark.textColor = .secondaryLabel
         subtitlePark.text = landmark.park
-        subtitlePark.widthAnchor.constraint(equalToConstant: 200).isActive = true
         
         let subtitleState = UILabel()
         subtitleState.font = .preferredFont(forTextStyle: .subheadline)
         subtitleState.textColor = .secondaryLabel
         subtitleState.text = landmark.state
+        subtitleState.setContentHuggingPriority(.required, for: .horizontal)
+        subtitleState.setContentCompressionResistancePriority(.required, for: .horizontal)
         
         subtitleStackView.addArrangedSubview(subtitlePark)
         subtitleStackView.addArrangedSubview(subtitleState)

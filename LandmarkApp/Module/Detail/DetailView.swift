@@ -44,6 +44,9 @@ class DetailViewController: UIViewController, DetailViewProtocol {
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
+        stackView.layer.cornerRadius = 24
+        stackView.clipsToBounds = true
     }
     
     func configureNavbar(){
