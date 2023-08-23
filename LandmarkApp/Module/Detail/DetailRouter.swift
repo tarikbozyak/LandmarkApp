@@ -12,16 +12,16 @@ typealias DetailEntry = UIViewController & DetailViewProtocol
 
 protocol DetailRouterProtocol {
     var entryPoint: DetailEntry? { get }
-    static func prepareModul(with landmark: Landmark) -> DetailRouterProtocol
+    static func prepareModul(with landmark: Landmark, delegate: LandmarkTableDelegate) -> DetailRouterProtocol
 }
 
 class DetailRouter: DetailRouterProtocol {
     var entryPoint: DetailEntry?
     
-    static func prepareModul(with landmark: Landmark) -> DetailRouterProtocol {
+    static func prepareModul(with landmark: Landmark, delegate: LandmarkTableDelegate) -> DetailRouterProtocol {
         var router = DetailRouter()
         
-        var view: DetailViewProtocol = DetailViewController(landmark)
+        var view: DetailViewProtocol = DetailViewController(landmark, delegate: delegate)
         var interactor: DetailInteractorProtocol = DetailInteractor()
         var presenter: DetailPresenterProtocol = DetailPresenter()
         

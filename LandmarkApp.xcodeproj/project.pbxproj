@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A2A07E22A95D14F00ED39B5 /* LandmarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A07E12A95D14F00ED39B5 /* LandmarkCell.swift */; };
+		8A2A07E72A95EFB300ED39B5 /* LocalStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A07E62A95EFB300ED39B5 /* LocalStore.swift */; };
 		8AFF96BF2A9491850082EC7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96BE2A9491850082EC7C /* AppDelegate.swift */; };
 		8AFF96C12A9491850082EC7C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF96C02A9491850082EC7C /* SceneDelegate.swift */; };
 		8AFF96C82A9491860082EC7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AFF96C72A9491860082EC7C /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		8A2A07E12A95D14F00ED39B5 /* LandmarkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandmarkCell.swift; sourceTree = "<group>"; };
+		8A2A07E62A95EFB300ED39B5 /* LocalStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalStore.swift; sourceTree = "<group>"; };
 		8AFF96BB2A9491850082EC7C /* LandmarkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LandmarkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AFF96BE2A9491850082EC7C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AFF96C02A9491850082EC7C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,21 +61,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8A2A07DF2A95D12100ED39B5 /* HomeView */ = {
-			isa = PBXGroup;
-			children = (
-				8A2A07E02A95D13300ED39B5 /* Cell */,
-				8AFF96D52A9491F70082EC7C /* HomeView.swift */,
-			);
-			path = HomeView;
-			sourceTree = "<group>";
-		};
 		8A2A07E02A95D13300ED39B5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				8A2A07E12A95D14F00ED39B5 /* LandmarkCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8A2A07E52A95EFA600ED39B5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8A2A07E62A95EFB300ED39B5 /* LocalStore.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		8AFF96B22A9491850082EC7C = {
@@ -95,6 +96,7 @@
 		8AFF96BD2A9491850082EC7C /* LandmarkApp */ = {
 			isa = PBXGroup;
 			children = (
+				8A2A07E52A95EFA600ED39B5 /* Utility */,
 				8AFF96FD2A9544A80082EC7C /* ScrollableStackView.swift */,
 				8AFF96FA2A94EE8C0082EC7C /* Datasource */,
 				8AFF96D22A9491D30082EC7C /* App */,
@@ -128,11 +130,12 @@
 		8AFF96D42A9491E80082EC7C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				8A2A07DF2A95D12100ED39B5 /* HomeView */,
+				8AFF96D52A9491F70082EC7C /* HomeView.swift */,
 				8AFF96D72A9492020082EC7C /* HomeInteractor.swift */,
 				8AFF96D92A9492140082EC7C /* HomePresenter.swift */,
 				8AFF96DB2A94921F0082EC7C /* HomeEntity.swift */,
 				8AFF96DD2A9492290082EC7C /* HomeRouter.swift */,
+				8A2A07E02A95D13300ED39B5 /* Cell */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				8A2A07E22A95D14F00ED39B5 /* LandmarkCell.swift in Sources */,
 				8AFF96DC2A94921F0082EC7C /* HomeEntity.swift in Sources */,
 				8AFF96F22A94BB410082EC7C /* DetailPresenter.swift in Sources */,
+				8A2A07E72A95EFB300ED39B5 /* LocalStore.swift in Sources */,
 				8AFF96F02A94BB340082EC7C /* DetailInteractor.swift in Sources */,
 				8AFF96D82A9492020082EC7C /* HomeInteractor.swift in Sources */,
 				8AFF96D62A9491F70082EC7C /* HomeView.swift in Sources */,

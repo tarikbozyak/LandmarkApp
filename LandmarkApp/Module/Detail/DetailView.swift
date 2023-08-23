@@ -13,12 +13,13 @@ protocol DetailViewProtocol {
     var presenter: DetailPresenterProtocol? { get set }
 }
 
-class DetailViewController: UIViewController, DetailViewProtocol {
+final class DetailViewController: UIViewController, DetailViewProtocol {
     var presenter: DetailPresenterProtocol?
     var landmark: Landmark
+    var landmarkTableDelegate: LandmarkTableDelegate?    
     
     var isFavorite: Bool {
-        return false
+        return LocalStore.getBoolValue(with: "favorite_\(landmark.id)") ?? false
     }
     
     lazy var landmarkImageView: UIImageView = {
@@ -110,10 +111,13 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     @objc func favoriteButtonTapped(sender: Any){
         guard let button = sender as? UIButton else { return }
         button.isSelected.toggle()
+        LocalStore.setBoolValue(with: button.isSelected, key: "favorite_\(landmark.id)")
+        landmarkTableDelegate?.updateFavoriteCell(for: landmark.id, isFavorite: button.isSelected)
     }
     
-    init(_ landmark: Landmark) {
+    init(_ landmark: Landmark, delegate: LandmarkTableDelegate) {
         self.landmark = landmark
+        self.landmarkTableDelegate = delegate
         super.init(nibName: nil, bundle: nil)
     }
     

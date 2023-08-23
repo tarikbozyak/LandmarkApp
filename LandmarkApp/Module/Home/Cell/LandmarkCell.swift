@@ -11,6 +11,8 @@ class LandmarkCell: UITableViewCell {
     
     static let reuseIdentifier = "LandmarkCell_Id"
     
+    var landmark: Landmark?
+    
     lazy var landmarkImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -55,6 +57,9 @@ class LandmarkCell: UITableViewCell {
     
     @objc func didButtonTapped(){
         favoriteButton.isSelected.toggle()
+        if let id = landmark?.id {
+            LocalStore.setBoolValue(with: favoriteButton.isSelected, key: "favorite_\(id)")
+        }
     }
     
     func setUp(){
@@ -67,9 +72,11 @@ class LandmarkCell: UITableViewCell {
     }
 
     func configure(with item: Landmark) {
+        self.landmark = item
         titleLabel.text = item.name
         subTitleLabel.text = item.park
         landmarkImageView.image = item.image
+        favoriteButton.isSelected = LocalStore.getBoolValue(with: "favorite_\(item.id)") ?? false
     }
     
     override func layoutSubviews() {

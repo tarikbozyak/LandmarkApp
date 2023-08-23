@@ -15,7 +15,7 @@ protocol HomeViewProtocol {
     func update(with error: String)
 }
 
-class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
+final class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
 
     var presenter: HomePresenterProtocol?
     
@@ -92,4 +92,17 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
     
 
     
+}
+
+extension HomeViewController: LandmarkTableDelegate {
+    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool) {
+        guard let rowIndex = landmarks.firstIndex(where: {$0.id == landmarkId}) else { return }
+        let indexPath = IndexPath(row: rowIndex, section: 0)
+        guard let cell = tableView.cellForRow(at: indexPath) as? LandmarkCell else { return }
+        cell.favoriteButton.isSelected = isFavorite
+    }
+}
+
+protocol LandmarkTableDelegate {
+    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool)
 }
