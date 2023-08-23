@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
     
     private let tableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(LandmarkCell.self, forCellReuseIdentifier: LandmarkCell.reuseIdentifier)
         tableView.isHidden = true
         return tableView
     }()
@@ -75,13 +75,19 @@ class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = landmarks[indexPath.row].name
+        guard let cell: LandmarkCell = tableView.dequeueReusableCell(withIdentifier: LandmarkCell.reuseIdentifier, for: indexPath) as? LandmarkCell else {
+            return UITableViewCell()
+        }
+        cell.configure(with: landmarks[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter?.router?.navigate(with: landmarks[indexPath.row], rootViewController: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120
     }
     
 
