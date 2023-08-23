@@ -19,7 +19,7 @@ class DetailRouter: DetailRouterProtocol {
     var entryPoint: DetailEntry?
     
     static func prepareModul(with landmark: Landmark, delegate: LandmarkTableDelegate) -> DetailRouterProtocol {
-        var router = DetailRouter()
+        let router = DetailRouter()
         
         var view: DetailViewProtocol = DetailViewController(landmark, delegate: delegate)
         var interactor: DetailInteractorProtocol = DetailInteractor()

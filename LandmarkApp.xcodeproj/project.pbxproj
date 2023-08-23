@@ -97,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				8A2A07E52A95EFA600ED39B5 /* Utility */,
-				8AFF96FD2A9544A80082EC7C /* ScrollableStackView.swift */,
 				8AFF96FA2A94EE8C0082EC7C /* Datasource */,
 				8AFF96D22A9491D30082EC7C /* App */,
 				8AFF96F72A94EE460082EC7C /* Extension */,
@@ -147,6 +146,7 @@
 				8AFF96EF2A94BB340082EC7C /* DetailInteractor.swift */,
 				8AFF96F12A94BB410082EC7C /* DetailPresenter.swift */,
 				8AFF96F32A94BB480082EC7C /* DetailRouter.swift */,
+				8AFF96FD2A9544A80082EC7C /* ScrollableStackView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
