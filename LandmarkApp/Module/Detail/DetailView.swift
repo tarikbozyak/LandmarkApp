@@ -21,6 +21,14 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         return false
     }
     
+    lazy var landmarkImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = landmark.image
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
     lazy var mapView = MKMapView()
     
     lazy var stackView = ScrollableStackView(landmark: landmark)
@@ -32,6 +40,7 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         addMapView()
         setMapRegion()
         addStackView()
+        addLandmarkImageView()
     }
     
     func addStackView(){
@@ -47,6 +56,29 @@ class DetailViewController: UIViewController, DetailViewProtocol {
         
         stackView.layer.cornerRadius = 24
         stackView.clipsToBounds = true
+        
+    }
+    
+    func addLandmarkImageView(){
+        
+        view.addSubview(landmarkImageView)
+        landmarkImageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            landmarkImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            landmarkImageView.widthAnchor.constraint(equalToConstant: 150),
+            landmarkImageView.heightAnchor.constraint(equalToConstant: 150),
+            landmarkImageView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: -75)
+        ])
+        
+        landmarkImageView.layer.cornerRadius = 75
+        landmarkImageView.layer.shadowColor = UIColor.black.cgColor
+        landmarkImageView.layer.shadowOpacity = 2.5
+        landmarkImageView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        landmarkImageView.layer.shadowRadius = 4
+        landmarkImageView.layer.borderColor = UIColor.white.cgColor
+        landmarkImageView.layer.borderWidth = 3
+        
+        landmarkImageView.layer.shadowPath = UIBezierPath(roundedRect: landmarkImageView.bounds, cornerRadius: landmarkImageView.layer.cornerRadius).cgPath
     }
     
     func configureNavbar(){
@@ -96,7 +128,7 @@ class DetailViewController: UIViewController, DetailViewProtocol {
             mapView.topAnchor.constraint(equalTo: view.topAnchor),
             mapView.leftAnchor.constraint(equalTo: view.leftAnchor),
             mapView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            mapView.heightAnchor.constraint(equalToConstant: 400)
+            mapView.heightAnchor.constraint(equalToConstant: 300)
         ])
         
     }

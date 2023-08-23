@@ -8,13 +8,12 @@
 import UIKit
 
 class ScrollableStackView: UIView {
-    // Properties
+    
     private lazy var scrollView = UIScrollView()
     private lazy var stackView = UIStackView()
     
     let landmark: Landmark
     
-    // Initializer
     init(frame: CGRect = .zero, landmark: Landmark) {
         self.landmark = landmark
         super.init(frame: frame)
@@ -46,8 +45,8 @@ class ScrollableStackView: UIView {
         // Set up the stack view
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 10 // Adjust spacing between arranged subviews
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        stackView.spacing = 10
+        stackView.layoutMargins = UIEdgeInsets(top: 85, left: 20, bottom: 20, right: 20)
         stackView.isLayoutMarginsRelativeArrangement = true
         scrollView.addSubview(stackView)
         
@@ -90,14 +89,14 @@ class ScrollableStackView: UIView {
         titleStackView.axis = .vertical
         titleStackView.spacing = 2
         
-        stackView.addArrangedSubview(titleStackView)
+        addArrangedSubview(titleStackView)
     }
     
     func addDiverLine(){
         let divider = UIView()
         divider.backgroundColor = .gray
         divider.heightAnchor.constraint(equalToConstant: 1).isActive = true
-        stackView.addArrangedSubview(divider)
+        addArrangedSubview(divider)
     }
     
     func addDescriptionSection(){
@@ -105,10 +104,10 @@ class ScrollableStackView: UIView {
         descriptionLabel.numberOfLines = 0
         descriptionLabel.text = landmark.description
         
-        stackView.addArrangedSubview(descriptionLabel)
+        addArrangedSubview(descriptionLabel)
     }
 
-    // Function to add subviews to the stack view
+
     func addArrangedSubview(_ view: UIView) {
         stackView.addArrangedSubview(view)
     }
