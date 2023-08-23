@@ -34,6 +34,16 @@ class LandmarkCell: UITableViewCell {
         return label
     }()
     
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.isUserInteractionEnabled = true
+        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.setImage(UIImage(systemName: "heart.fill"), for: .selected)
+        button.addTarget(self, action: #selector(didButtonTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setUp()
@@ -43,10 +53,17 @@ class LandmarkCell: UITableViewCell {
         fatalError("HeaderView init(coder:) has not been implemented")
     }
     
+    @objc func didButtonTapped(){
+        favoriteButton.isSelected.toggle()
+    }
+    
     func setUp(){
+        contentView.isUserInteractionEnabled = true
+        selectionStyle = .none
         addSubview(landmarkImageView)
         addSubview(titleLabel)
         addSubview(subTitleLabel)
+        addSubview(favoriteButton)
     }
 
     func configure(with item: Landmark) {
@@ -68,22 +85,23 @@ class LandmarkCell: UITableViewCell {
             //titleLabel constraints
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: landmarkImageView.trailingAnchor, constant: 16),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            titleLabel.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -16),
             
-            //descriptionLabel constraints
+            //subTitleLabel constraints
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subTitleLabel.leadingAnchor.constraint(equalTo: landmarkImageView.trailingAnchor, constant: 16),
-            subTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
+            subTitleLabel.trailingAnchor.constraint(equalTo: favoriteButton.leadingAnchor, constant: -24),
+            
+            //favoriteButton constraints
+            favoriteButton.widthAnchor.constraint(equalToConstant: 40),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 40),
+            favoriteButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            favoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -24)
+            
         ])
         
         landmarkImageView.layer.cornerRadius = landmarkImageView.frame.size.height / 10
         
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
