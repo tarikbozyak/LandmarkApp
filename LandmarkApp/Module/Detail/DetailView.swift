@@ -23,12 +23,27 @@ class DetailViewController: UIViewController, DetailViewProtocol {
     
     lazy var mapView = MKMapView()
     
+    lazy var stackView = ScrollableStackView(landmark: landmark)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavbar()
         view.backgroundColor = .white
         addMapView()
         setMapRegion()
+        addStackView()
+    }
+    
+    func addStackView(){
+        view.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -40),
+            stackView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            stackView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
     func configureNavbar(){
