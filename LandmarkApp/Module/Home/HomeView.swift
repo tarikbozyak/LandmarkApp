@@ -10,9 +10,12 @@ import UIKit
 
 protocol HomeViewProtocol {
     var presenter: HomePresenterProtocol? { get set }
-    
     func update(with landmark: [Landmark])
     func update(with error: String)
+}
+
+protocol LandmarkTableDelegate: AnyObject {
+    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool)
 }
 
 final class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
@@ -103,6 +106,3 @@ extension HomeViewController: LandmarkTableDelegate {
     }
 }
 
-protocol LandmarkTableDelegate {
-    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool)
-}

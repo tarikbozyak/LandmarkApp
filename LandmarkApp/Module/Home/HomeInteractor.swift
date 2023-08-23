@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol HomeInteractorProtocol {
+protocol HomeInteractorProtocol: AnyObject {
     var presenter: HomePresenterProtocol? { get set }
     func getLandmarks()
 }
 
 class HomeInteractor: HomeInteractorProtocol {
-    var presenter: HomePresenterProtocol?
+    weak var presenter: HomePresenterProtocol?
     
     func getLandmarks() {
         let data: Data

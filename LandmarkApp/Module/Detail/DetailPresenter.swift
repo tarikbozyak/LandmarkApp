@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DetailPresenterProtocol {
+protocol DetailPresenterProtocol: AnyObject {
     var view: DetailViewProtocol? { get set }
     var interactor: DetailInteractorProtocol? { get set }
     var router: DetailRouterProtocol? { get set }
@@ -16,7 +16,7 @@ protocol DetailPresenterProtocol {
 class DetailPresenter: DetailPresenterProtocol {
     var view: DetailViewProtocol?
     
-    var interactor: DetailInteractorProtocol?
+    weak var interactor: DetailInteractorProtocol?
     
     var router: DetailRouterProtocol?
     

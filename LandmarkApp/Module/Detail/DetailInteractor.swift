@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DetailInteractorProtocol {
+protocol DetailInteractorProtocol: AnyObject {
     var presenter: DetailPresenterProtocol? { get set }
 }
 

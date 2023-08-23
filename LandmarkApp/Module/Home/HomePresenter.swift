@@ -11,7 +11,7 @@ enum FetchError: Error {
     case failed
 }
 
-protocol HomePresenterProtocol {
+protocol HomePresenterProtocol: AnyObject {
     var interactor: HomeInteractorProtocol? { get set }
     var router: HomeRouterProtocol? { get set }
     var view: HomeViewProtocol? { get set }
@@ -20,7 +20,7 @@ protocol HomePresenterProtocol {
 
 
 class HomePresenter: HomePresenterProtocol {
-    var interactor: HomeInteractorProtocol? {
+    weak var interactor: HomeInteractorProtocol? {
         didSet {
             interactor?.getLandmarks()
         }

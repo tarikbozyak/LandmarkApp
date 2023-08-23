@@ -14,9 +14,9 @@ protocol DetailViewProtocol {
 }
 
 final class DetailViewController: UIViewController, DetailViewProtocol {
-    var presenter: DetailPresenterProtocol?
+    weak var presenter: DetailPresenterProtocol?
     var landmark: Landmark
-    var landmarkTableDelegate: LandmarkTableDelegate?    
+    lazy var landmarkTableDelegate: LandmarkTableDelegate? = nil
     
     var isFavorite: Bool {
         return LocalStore.getBoolValue(with: "favorite_\(landmark.id)") ?? false
@@ -117,8 +117,8 @@ final class DetailViewController: UIViewController, DetailViewProtocol {
     
     init(_ landmark: Landmark, delegate: LandmarkTableDelegate) {
         self.landmark = landmark
-        self.landmarkTableDelegate = delegate
         super.init(nibName: nil, bundle: nil)
+        self.landmarkTableDelegate = delegate
     }
     
     required init?(coder: NSCoder) {
@@ -144,6 +144,10 @@ final class DetailViewController: UIViewController, DetailViewProtocol {
             let coordinateRegion = MKCoordinateRegion(center: coordinate, span: span)
             self?.mapView.setRegion(coordinateRegion, animated: true)
         }
+    }
+    
+    deinit {
+        print("?? DetailView deinit success.")
     }
     
 }
