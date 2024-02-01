@@ -16,10 +16,15 @@ protocol HomePresenterProtocol: AnyObject {
     var router: HomeRouterProtocol? { get set }
     var view: HomeViewProtocol? { get set }
     func interactorDidFetchLandmarks(with result: Result<[Landmark], Error>)
+    func didSelectLandmark(_ item: Landmark)
 }
 
+protocol LandmarkTableDelegate: AnyObject {
+    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool)
+}
 
-class HomePresenter: HomePresenterProtocol {
+class HomePresenter: HomePresenterProtocol, LandmarkTableDelegate {
+
     weak var interactor: HomeInteractorProtocol? {
         didSet {
             interactor?.getLandmarks()
@@ -37,6 +42,14 @@ class HomePresenter: HomePresenterProtocol {
         case .failure(let error):
             view?.update(with: "Error occured : \(error.localizedDescription)")
         }
+    }
+    
+    func didSelectLandmark(_ item: Landmark) {
+        router?.navigate(with: item, rootViewController: view, delegate: self)
+    }
+    
+    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool) {
+        view?.updateCell(for: landmarkId, isFavorite: isFavorite)
     }
     
     

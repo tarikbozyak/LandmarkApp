@@ -14,7 +14,7 @@ typealias LandmarkList = UIViewController & LandmarkTableDelegate
 protocol HomeRouterProtocol {
     var entry: EntryPoint? { get }
     static func start() -> HomeRouterProtocol
-    func navigate(with landmark: Landmark, rootViewController: LandmarkList)
+    func navigate(with landmark: Landmark, rootViewController: UIViewController?, delegate: LandmarkTableDelegate)
 }
 
 class HomeRouter: HomeRouterProtocol {
@@ -42,10 +42,10 @@ class HomeRouter: HomeRouterProtocol {
         
     }
     
-    func navigate(with landmark: Landmark, rootViewController: LandmarkList) {
-        let router = DetailRouter.prepareModul(with: landmark, delegate: rootViewController)
+    func navigate(with landmark: Landmark, rootViewController: UIViewController?, delegate: LandmarkTableDelegate) {
+        let router = DetailRouter.prepareModul(with: landmark, delegate: delegate)
         guard let detailVC = router.entryPoint else { return }
-        rootViewController.navigationController?.pushViewController(detailVC, animated: true)
+        rootViewController?.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     

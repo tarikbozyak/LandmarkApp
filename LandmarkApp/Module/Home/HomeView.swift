@@ -8,14 +8,11 @@
 import Foundation
 import UIKit
 
-protocol HomeViewProtocol {
+protocol HomeViewProtocol where Self: UIViewController {
     var presenter: HomePresenterProtocol? { get set }
     func update(with landmark: [Landmark])
     func update(with error: String)
-}
-
-protocol LandmarkTableDelegate: AnyObject {
-    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool)
+    func updateCell(for landmarkId: Int, isFavorite: Bool)
 }
 
 final class HomeViewController: UIViewController, HomeViewProtocol, UITableViewDelegate, UITableViewDataSource {
@@ -78,7 +75,9 @@ final class HomeViewController: UIViewController, HomeViewProtocol, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: LandmarkCell = tableView.dequeueReusableCell(withIdentifier: LandmarkCell.reuseIdentifier, for: indexPath) as? LandmarkCell else {
+        guard 
+            let cell: LandmarkCell = tableView.dequeueReusableCell(withIdentifier: LandmarkCell.reuseIdentifier, for: indexPath) as? LandmarkCell
+        else {
             return UITableViewCell()
         }
         cell.configure(with: landmarks[indexPath.row])
@@ -86,19 +85,14 @@ final class HomeViewController: UIViewController, HomeViewProtocol, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.router?.navigate(with: landmarks[indexPath.row], rootViewController: self)
+        presenter?.didSelectLandmark(landmarks[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
     }
     
-
-    
-}
-
-extension HomeViewController: LandmarkTableDelegate {
-    func updateFavoriteCell(for landmarkId: Int, isFavorite: Bool) {
+    func updateCell(for landmarkId: Int, isFavorite: Bool){
         guard let rowIndex = landmarks.firstIndex(where: {$0.id == landmarkId}) else { return }
         let indexPath = IndexPath(row: rowIndex, section: 0)
         guard let cell = tableView.cellForRow(at: indexPath) as? LandmarkCell else { return }
